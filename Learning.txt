@@ -1,0 +1,28 @@
+************************ WHAT TO DO *****************
+1.Setting up our Ptyhon Backend
+2.Creating our React JS Frontend
+3.Page navigation with React Router
+4.Creating a navbar with Material UI
+5.Basic CRUD example
+
+****************** STEPS***********************
+1.Creating A Virtual Enviroment
+2.Installing Packages
+3.Creating our Django Project and App
+4.Changing our Settings
+5.Including our URLS
+6.Migrating our Database
+
+
+************************* SET UP DJANGO *********************
+1. CREATE VIRETUAL ENV -> python -m bip install virtualenv
+2.gIVE THE Virtual ENVIROMENT NAME --> python -m virtualenv venv
+3.Activate the Virtual Enviroment  ->venv/scripts/activate
+4.Install the Django ->python -m pip install django
+5.Install the nodejs  ->npm install -g npm
+6.Install django Framework --> pip install djangoresrframework
+7.Create the App -> django-admin startproject Crud
+8.The add Install app in Settings Folder
+9.Then Migrate the admin .auth ->python manage.py makemigrations
+10.Run the Django Server -> python manage.py runserver 
+
