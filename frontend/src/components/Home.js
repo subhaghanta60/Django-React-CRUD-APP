@@ -1,11 +1,17 @@
 import {React,useEffect} from 'react'
 import AxiosInstance from './Axios'
 import { useMemo ,useState} from 'react';
+import { Box, IconButton } from '@mui/material';
 import {
   MaterialReactTable,
-  useMaterialReactTable,
+  
 } from 'material-react-table';
-
+import Dayjs from 'dayjs';
+import {
+  Edit as EditIcon,
+  Delete as DeleteIcon,
+  Email as EmailIcon,
+} from '@mui/icons-material';
 const Home = () => {
 
   const [myData,setMydata] =useState();
@@ -17,6 +23,7 @@ const Home = () => {
     })
 
   }
+ 
   useEffect(() =>{
      GetData();
   },[])
@@ -29,12 +36,13 @@ const Home = () => {
         size: 150,
       },
       {
-        accessorKey: 'start_date',
+        accessorFn: (row)=>Dayjs(row.start_date).format('DD-MM-YYYY'),
+      
         header: 'Start Date',
         size: 150,
       },
       {
-        accessorKey: 'end_date', //normal accessorKey
+        accessorFn: (row)=>Dayjs(row.end_date).format('DD-MM-YYYY'), //normal accessorKey
         header: 'End Date',
         size: 200,
       },
@@ -55,7 +63,30 @@ const Home = () => {
   
   return (
     <div>
-    { loading ? <p>Loading Data...</p> : <MaterialReactTable columns={columns} data={myData}/>
+    { loading ? <p>Loading Data...</p> : <MaterialReactTable
+    
+    columns={columns} data={myData}
+    layoutMode="grid"
+      displayColumnDefOptions={{
+        'mrt-row-actions': {
+          size: 180, //if using layoutMode that is not 'semantic', the columns will not auto-size, so you need to set the size manually
+          grow: false,
+        },
+      }}
+      enableRowActions
+      renderRowActions={() => (
+        <Box sx={{ display: 'flex', flexWrap: 'nowrap', gap: '8px' }}>
+         
+          <IconButton color="secondary">
+            <EditIcon />
+          </IconButton>
+          <IconButton color="error">
+            <DeleteIcon />
+          </IconButton>
+        </Box>
+      )}
+    
+    />
     }
     </div>
   )
