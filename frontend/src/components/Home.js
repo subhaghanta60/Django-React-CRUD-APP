@@ -17,7 +17,7 @@ const Home = () => {
     })
 
   }
-  console.log(Subha)
+ 
   useEffect(() =>{
      GetData();
   },[])
