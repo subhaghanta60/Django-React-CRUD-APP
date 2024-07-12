@@ -14,6 +14,7 @@ import {
 } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 
+
 const Home = () => {
 
   const [myData,setMydata] =useState();
@@ -82,7 +83,7 @@ const Home = () => {
         <IconButton color="secondary" component={Link} to={`edit/${row.original.id}`}>
             <EditIcon />
           </IconButton>
-          <IconButton color="error">
+          <IconButton color="error" component={Link} to={`delete/${row.original.id}`}>
             <DeleteIcon />
           </IconButton>
         </Box>
