@@ -10,8 +10,10 @@ import Dayjs from 'dayjs';
 import {
   Edit as EditIcon,
   Delete as DeleteIcon,
-  Email as EmailIcon,
+  
 } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+
 const Home = () => {
 
   const [myData,setMydata] =useState();
@@ -74,10 +76,10 @@ const Home = () => {
         },
       }}
       enableRowActions
-      renderRowActions={() => (
+      renderRowActions={({row}) => (
         <Box sx={{ display: 'flex', flexWrap: 'nowrap', gap: '8px' }}>
          
-          <IconButton color="secondary">
+        <IconButton color="secondary" component={Link} to={`edit/${row.original.id}`}>
             <EditIcon />
           </IconButton>
           <IconButton color="error">
